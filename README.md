@@ -79,61 +79,6 @@ Use a paired permutation test to formally compare the two best-performing models
 
 Deliverable: permutation test results for accuracy and F1, with printed p-values and a written conclusion.
 
-### Task 4: Model Selection Bias Demonstration
-
-Show how evaluating many models on the same test set inflates the apparent performance of the winner:
-
-1. Train 20 Decision Tree classifiers with different `max_depth` values (e.g., 1 through 20).
-2. Evaluate all 20 on the same test set and record the best test-set accuracy.
-3. Now estimate the "honest" performance of that best model using 5-fold cross-validation on the training set only.
-4. Compare the two numbers. In a Markdown cell, explain:
-   - Why the best test-set accuracy is likely an overestimate.
-   - How cross-validation or a separate validation set mitigates this bias.
-   - When this bias matters most in practice (hint: small test sets, many candidates).
-
-Deliverable: a table or plot of test-set accuracy vs. `max_depth`, the cross-validated estimate of the chosen model, and a written explanation of model selection bias.
-
-### Task 5: Threshold Analysis
-
-Pick the model you would recommend and explore how changing the classification threshold affects precision and recall:
-
-1. Plot a precision-recall curve using `sklearn.metrics.PrecisionRecallCurve`.
-2. On the same figure, mark three thresholds: the default 0.5, a threshold that maximizes F1, and a threshold that achieves at least 90 % precision (if reachable).
-3. For each threshold, print the corresponding precision, recall, and F1.
-4. In a Markdown cell, write 2–3 sentences advising a stakeholder: **If false positives are twice as costly as false negatives, which threshold would you recommend and why?**
-
-Deliverable: an annotated precision-recall curve, a threshold comparison table, and a stakeholder-facing recommendation.
-
-### Task 6: Evaluation Memo
-
-Write a structured Markdown memo (directly in your notebook) that a project lead could read to decide which model to deploy. Use the following template:
-
-```
-## Evaluation Memo
-
-### Objective
-(One sentence: what decision does this memo support?)
-
-### Models Compared
-(Table with model names, key hyperparameters, and point-estimate metrics.)
-
-### Statistical Comparison
-(Bootstrap CIs and permutation test results. State whether the
-performance difference is statistically significant.)
-
-### Model Selection Bias Check
-(Summarize Task 4 findings. State the honest performance estimate.)
-
-### Threshold Recommendation
-(Summarize Task 5. State the recommended threshold and the
-expected precision/recall at that threshold.)
-
-### Recommendation
-(Which model, at which threshold, and why — in 3–5 sentences.)
-```
-
-Deliverable: a completed evaluation memo in Markdown format.
-
 ## Submission
 
 ### What to submit
@@ -145,9 +90,6 @@ Deliverable: a completed evaluation memo in Markdown format.
 - [ ] Two or three classifiers trained and evaluated with classification reports (Task 1).
 - [ ] Bootstrap 95 % CIs computed for accuracy, F1, and AUC with a comparison visualization (Task 2).
 - [ ] Paired permutation test results with p-values and written conclusions (Task 3).
-- [ ] Model selection bias demonstrated with a comparison of test-set best vs. cross-validated estimate (Task 4).
-- [ ] Precision-recall curve with three annotated thresholds and a stakeholder recommendation (Task 5).
-- [ ] Completed evaluation memo with all sections filled in (Task 6).
 - [ ] All cells run without errors from top to bottom.
 
 ### How to submit
